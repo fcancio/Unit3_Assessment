@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    <h3>Wish List Items</h3>
+    <h1>Wish List Items</h1>
 {% if item_list|length == 0 %}
     <h3>No Wish Items Exist</h3>
 {% else %}
     <table class="pure-table">
         <thead>
             <tr>
-                <th>Item</th>
+                <th>Description</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -17,7 +17,7 @@
             {% for item in item_list %}
                 <tr>
                     <td>{{ item.description }}</td>
-                    <td>X</td>
+                    <td><a href="{% url 'item_delete' item.id %}">X</td>
                 </tr>
             {% endfor %}
         </tbody>
